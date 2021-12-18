@@ -1,0 +1,23 @@
+@import '../../style/variables';
+
+.title {
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4)),
+    url(../../assets/image/background.jpg);
+  background-size: cover;
+  background-position: top;
+  display: flex;
+  height: 100vh;
+  color: $color-white-primary;
+  font-weight: 600;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &__primary {
+    font-size: $title-font-size;
+  }
+
+  &__secondary {
+    font-size: $subtitle-font-size;
+  }
+}
