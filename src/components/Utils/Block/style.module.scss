@@ -1,0 +1,23 @@
+@import '../../../style/variables';
+
+.block {
+  display: flex;
+  padding: 3rem 0;
+  flex-direction: column;
+  align-items: center;
+
+  &--dark {
+    background-color: $color-black-primary;
+    color: $color-white-primary;
+  }
+
+  &--light {
+    background-color: $color-white-primary;
+    color: $color-black-primary;
+  }
+
+  &__title {
+    font-size: $block-title-font-size;
+    text-transform: uppercase;
+  }
+}
