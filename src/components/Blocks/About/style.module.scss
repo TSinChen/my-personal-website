@@ -1,0 +1,22 @@
+.about {
+  display: flex;
+  align-items: center;
+
+  &__photo {
+    margin-right: 5rem;
+    width: 25rem;
+    border-radius: 50%;
+  }
+
+  &__text {
+    &__title {
+      margin-bottom: 0.8rem;
+      font-size: 3rem;
+      font-weight: 700;
+    }
+
+    &__content {
+      font-size: 1.7rem;
+    }
+  }
+}
