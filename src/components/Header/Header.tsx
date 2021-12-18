@@ -1,6 +1,6 @@
 import styles from './style.module.scss'
 
-const NAV_ITEMS = ['home', 'about', 'education', 'skills', 'portfolios', 'contact']
+import { NAV_ITEMS } from '../../constants/navItems'
 
 const Header = () => {
   return (
