@@ -1,26 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
 
-function App() {
+import './reset.module.scss'
+import Header from './components/Header/Header'
+import MainPage from './components/MainPage/MainPage'
+import Block from './components/Utils/Block/Block'
+import About from './components/Blocks/About/About'
+import Education from './components/Blocks/Education/Education'
+import { NAV_ITEMS } from './constants/navItems'
+
+const BLOCKS: { title: string; component: () => React.ReactElement }[] = [
+  { title: NAV_ITEMS.about, component: About },
+  { title: NAV_ITEMS.experience, component: Education },
+]
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Header />
+      <MainPage />
+      {BLOCKS.map((block, index) => (
+        <Block theme={index % 2 ? 'dark' : 'light'} title={block.title} key={block.title}>
+          {block.component()}
+        </Block>
+      ))}
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
