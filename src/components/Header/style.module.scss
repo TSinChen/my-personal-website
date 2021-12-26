@@ -1,9 +1,10 @@
 @import '../../style/variables';
 
-$nav-height: 6rem;
-
 .header {
-  margin-bottom: -$nav-height;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   background-color: rgba(0, 0, 0, 0.7);
   display: flex;
   justify-content: center;
@@ -17,8 +18,7 @@ $nav-height: 6rem;
     &__item {
       display: flex;
       align-items: center;
-      height: $nav-height;
-      padding: 0 2rem;
+      padding: 1.5rem 2rem;
       color: $color-white-primary;
       font-size: 2rem;
       cursor: pointer;
