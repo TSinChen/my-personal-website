@@ -5,7 +5,7 @@ import Header from './components/Header/Header'
 import MainPage from './components/MainPage/MainPage'
 import Block from './components/Utils/Block/Block'
 import About from './components/Blocks/About/About'
-import Education from './components/Blocks/Education/Education'
+import Education from './components/Blocks/Experience/Experience'
 import { NAV_ITEMS } from './constants/navItems'
 
 const BLOCKS: { title: string; component: () => React.ReactElement }[] = [
