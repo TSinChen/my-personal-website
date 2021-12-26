@@ -1,0 +1,45 @@
+@import '../../../style/variables';
+
+.experience {
+  &__item {
+    display: flex;
+    align-items: center;
+
+    &__logo {
+      margin-right: 3rem;
+      width: 14rem;
+      height: 14rem;
+      border-radius: 50%;
+    }
+
+    &__text {
+      &__title {
+        display: flex;
+        font-weight: bold;
+        flex-direction: column;
+
+        &__job {
+          font-size: 2.2rem;
+        }
+
+        &__company {
+          font-size: 1.8rem;
+        }
+      }
+
+      &__time {
+        font-size: 1.6rem;
+      }
+
+      &__description {
+        max-width: 60rem;
+        font-size: 1.8rem;
+
+        > li {
+          margin-left: 1.8rem;
+          list-style: decimal;
+        }
+      }
+    }
+  }
+}
