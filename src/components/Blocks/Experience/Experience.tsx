@@ -10,9 +10,13 @@ const Experience = () => {
   const [experience, setExperience] = useState<ExperienceList>([])
 
   const getExperience = async () => {
-    const data = await apis.personalInfo.getExperience()
-    const experienceList: ExperienceList = data.data
-    setExperience(experienceList)
+    try {
+      const data = await apis.personalInfo.getExperience()
+      const experienceList: ExperienceList = data.data
+      setExperience(experienceList)
+    } catch (error) {
+      console.error(error)
+    }
   }
 
   useEffect(() => {
