@@ -1,0 +1,46 @@
+@import '../../../style/variables';
+
+.skills {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  &__item {
+    position: relative;
+    display: flex;
+    width: 33.33%;
+    justify-content: center;
+    border-radius: 50%;
+
+    &:nth-child(-n + 3) {
+      margin-bottom: $block-vertical-padding;
+    }
+
+    &__icon {
+      width: 14rem;
+      transition: all 0.2s;
+    }
+
+    &__description {
+      display: none;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-align: center;
+      transform: translate(-50%, -50%);
+      transition: opacity 0.2s ease-out;
+      user-select: none;
+    }
+  }
+
+  &__item:hover &__item__icon {
+    transform: scale(1.1);
+    filter: blur(8px);
+  }
+
+  &__item:hover &__item__description {
+    display: block;
+  }
+}
