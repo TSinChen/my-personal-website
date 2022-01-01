@@ -29,7 +29,7 @@ const Experience = () => {
               <p className={styles.experience__item__text__title__job}>{career.job}</p>
               <p className={styles.experience__item__text__title__company}>{career.company}</p>
             </div>
-            <p className={styles.experience__item__text__time} style={{ opacity: '0.55' }}>
+            <p className={styles.experience__item__text__time}>
               {`${dayjs(career.startTime).format('YYYY/MM')} ~ ${
                 career.endTime ? dayjs(career.endTime).format('YYYY/MM') : '至今'
               }`}
