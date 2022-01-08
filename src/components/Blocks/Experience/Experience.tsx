@@ -11,8 +11,8 @@ const Experience = () => {
 
   const getExperience = async () => {
     try {
-      const data = await apis.personalInfo.getExperienceList()
-      const experienceList: ExperienceList = data.data
+      const result = await apis.personalInfo.getExperienceList()
+      const experienceList: ExperienceList = result.data
       setExperienceList(experienceList)
     } catch (error) {
       console.error(error)

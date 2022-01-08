@@ -11,8 +11,8 @@ const Portfolios = () => {
 
   const getRepositoryList = async () => {
     try {
-      const data = await apis.personalInfo.getRepositoryList()
-      const repositoryList: RepositoryList = data.data
+      const result = await apis.personalInfo.getRepositoryList()
+      const repositoryList: RepositoryList = result.data
       repositoryList.sort((a, b) => (dayjs(a.created_at).isBefore(dayjs(b.created_at)) ? 1 : -1))
       setRepositoryList(repositoryList)
     } catch (error) {
