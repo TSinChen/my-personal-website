@@ -9,6 +9,7 @@ import About from './components/Blocks/About/About'
 import Experience from './components/Blocks/Experience/Experience'
 import Skills from './components/Blocks/Skills/Skills'
 import Portfolios from './components/Blocks/Portfolios/Portfolios'
+import Footer from './components/Footer/Footer'
 
 const BLOCKS: { title: string; component: () => React.ReactElement }[] = [
   { title: NAV_ITEMS.about, component: About },
@@ -27,6 +28,7 @@ const App = () => {
           {block.component()}
         </Block>
       ))}
+      <Footer />
     </div>
   )
 }

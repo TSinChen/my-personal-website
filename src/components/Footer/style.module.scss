@@ -1,0 +1,24 @@
+@import '../../style/variables';
+
+.footer {
+  display: flex;
+  padding: $footer-vertical-padding 0;
+  background-color: $footer-background-color;
+  color: $footer-font-color;
+  font-size: 1.6rem;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  &__link {
+    margin-bottom: 5px;
+    text-decoration: underline;
+  }
+
+  &__copyright {
+    &__link {
+      margin: 0 5px;
+      text-decoration: underline;
+    }
+  }
+}
