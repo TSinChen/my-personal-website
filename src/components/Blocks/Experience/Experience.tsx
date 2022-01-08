@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react'
 import dayjs from 'dayjs'
 
 import styles from './style.module.scss'
-import LOGO_3DRENS from '../../../assets/image/3drens.png'
 import apis from '../../../apis/apis'
 import { ExperienceList } from '../../../type/personalInfo'
 
@@ -27,7 +26,7 @@ const Experience = () => {
     <ul className={styles.experience}>
       {experienceList.map((experience) => (
         <li className={styles.experience__item} key={experience.job + experience.company}>
-          <img className={styles.experience__item__logo} src={LOGO_3DRENS} />
+          <img className={styles.experience__item__logo} src={experience.iconLink} />
           <div className={styles.experience__item__text}>
             <div className={styles.experience__item__text__title}>
               <p className={styles.experience__item__text__title__job}>{experience.job}</p>

@@ -4,6 +4,7 @@ export type Experience = {
   startTime: string
   endTime: string
   description: string[]
+  iconLink: string
 }
 
 export type ExperienceList = Experience[]
