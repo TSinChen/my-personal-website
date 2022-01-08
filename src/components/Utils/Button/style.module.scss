@@ -1,0 +1,23 @@
+@import '../../../style/variables';
+
+.button {
+  background-color: $color-white-primary;
+  display: block;
+  margin: 0 auto;
+  padding: 1rem 2.5rem;
+  color: $color-black-primary;
+  font-size: 1.6rem;
+  font-weight: bold;
+  border: 1px solid $color-black-primary;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.1s;
+
+  &:hover {
+    transform: translateY(-3px);
+  }
+
+  &:active {
+    transform: translateY(-1px);
+  }
+}
