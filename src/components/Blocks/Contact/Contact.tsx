@@ -9,9 +9,16 @@ import Button from '../../Utils/Button/Button'
 
 const Contact = () => {
   const photoLink = useSelector((state: RootReducerStateTypes) => state.photo.link)
+  const [isSending, setIsSending] = useState(false)
   const [formName, setFormName] = useState('')
   const [formEmail, setFormEmail] = useState('')
   const [formMessage, setFormMessage] = useState('')
+
+  const clearForm = () => {
+    setFormName('')
+    setFormEmail('')
+    setFormMessage('')
+  }
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
@@ -19,8 +26,17 @@ const Contact = () => {
     formData.append('formName', formName)
     formData.append('formEmail', formEmail)
     formData.append('formMessage', formMessage)
-    await apis.contact.postContact(formData)
+    setIsSending(true)
+    try {
+      await apis.contact.postContact(formData)
+    } catch (error) {
+      console.error(error)
+    } finally {
+      clearForm()
+      setIsSending(false)
+    }
   }
+
   return (
     <div className={styles.contact}>
       <form className={styles.contact__form} onSubmit={handleSubmit}>
@@ -66,7 +82,9 @@ const Contact = () => {
             onChange={(e) => setFormMessage(e.target.value)}
           />
         </div>
-        <Button type="submit">送出</Button>
+        <Button type="submit" disabled={isSending}>
+          {'送出'}
+        </Button>
       </form>
       <div className={styles.contact__info}>
         <img className={styles.contact__info__picture} src={photoLink} />
