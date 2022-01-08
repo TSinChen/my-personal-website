@@ -2,7 +2,7 @@
 
 .block {
   display: flex;
-  padding: $block-vertical-padding calc((100vw - #{$block-max-width}) / 2);
+  padding: $block-vertical-padding-top calc((100vw - #{$block-max-width}) / 2) $block-vertical-padding-bottom;
   flex-direction: column;
   align-items: center;
 

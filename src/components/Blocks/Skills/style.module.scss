@@ -13,7 +13,7 @@
     border-radius: 50%;
 
     &:nth-child(-n + 3) {
-      margin-bottom: $block-vertical-padding;
+      margin-bottom: $block-vertical-padding-top;
     }
 
     &__icon {
