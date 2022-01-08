@@ -1,6 +1,7 @@
+import dayjs from 'dayjs'
+
 import styles from './style.module.scss'
 import { Repository } from '../../../../type/personalInfo'
-import dayjs from 'dayjs'
 
 type Props = {
   repository: Repository
