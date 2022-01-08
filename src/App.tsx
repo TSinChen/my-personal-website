@@ -1,18 +1,20 @@
 import React from 'react'
 
 import './reset.module.scss'
+import { NAV_ITEMS } from './constants/navItems'
 import Header from './components/Header/Header'
 import MainPage from './components/MainPage/MainPage'
 import Block from './components/Utils/Block/Block'
 import About from './components/Blocks/About/About'
 import Experience from './components/Blocks/Experience/Experience'
 import Skills from './components/Blocks/Skills/Skills'
-import { NAV_ITEMS } from './constants/navItems'
+import Portfolios from './components/Blocks/Portfolios/Portfolios'
 
 const BLOCKS: { title: string; component: () => React.ReactElement }[] = [
   { title: NAV_ITEMS.about, component: About },
   { title: NAV_ITEMS.experience, component: Experience },
   { title: NAV_ITEMS.skills, component: Skills },
+  { title: NAV_ITEMS.portfolios, component: Portfolios },
 ]
 
 const App = () => {

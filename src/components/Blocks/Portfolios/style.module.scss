@@ -1,0 +1,18 @@
+@import '../../../style/variables';
+
+.portfolios {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  &__source {
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    font-weight: bold;
+
+    a {
+      font-size: 1.1em;
+      text-decoration: underline;
+    }
+  }
+}
