@@ -26,6 +26,9 @@
     font-size: 2.4rem;
     font-weight: bold;
     border-bottom: 1px solid $color-white-primary;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
   }
 
   &__description {

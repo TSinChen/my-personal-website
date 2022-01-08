@@ -10,7 +10,9 @@ type Props = {
 const Card = ({ repository }: Props) => {
   return (
     <li className={styles.card}>
-      <div className={styles.card__title}>{repository.name}</div>
+      <div className={styles.card__title} title={repository.name}>
+        {repository.name}
+      </div>
       <div className={styles.card__description}>{repository.description}</div>
       <div className={styles.card__footer}>
         <div className={styles.card__footer__link}>
