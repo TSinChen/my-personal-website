@@ -25,29 +25,29 @@ const Experience = () => {
 
   return (
     <ul className={styles.experience}>
-      {experienceList.map((career) => (
-        <li className={styles.experience__item} key={career.job + career.company}>
+      {experienceList.map((experience) => (
+        <li className={styles.experience__item} key={experience.job + experience.company}>
           <img className={styles.experience__item__logo} src={LOGO_3DRENS} />
           <div className={styles.experience__item__text}>
             <div className={styles.experience__item__text__title}>
-              <p className={styles.experience__item__text__title__job}>{career.job}</p>
-              <p className={styles.experience__item__text__title__company}>{career.company}</p>
+              <p className={styles.experience__item__text__title__job}>{experience.job}</p>
+              <p className={styles.experience__item__text__title__company}>{experience.company}</p>
             </div>
             <p className={styles.experience__item__text__time}>
-              {`${dayjs(career.startTime).format('YYYY/MM')} ~ ${
-                career.endTime ? dayjs(career.endTime).format('YYYY/MM') : '至今'
+              {`${dayjs(experience.startTime).format('YYYY/MM')} ~ ${
+                experience.endTime ? dayjs(experience.endTime).format('YYYY/MM') : '至今'
               }`}
             </p>
-            {career.description.length > 1
+            {experience.description.length > 1
               ? (
               <ul className={styles.experience__item__text__description}>
-                {career.description.map((description) => (
+                {experience.description.map((description) => (
                   <li key={description}>{description}</li>
                 ))}
               </ul>
                 )
               : (
-              <p className={styles.experience__item__text__description}>{career.description}</p>
+              <p className={styles.experience__item__text__description}>{experience.description}</p>
                 )}
           </div>
         </li>
