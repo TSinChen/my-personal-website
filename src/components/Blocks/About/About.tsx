@@ -1,12 +1,15 @@
 import dayjs from 'dayjs'
+import { useSelector } from 'react-redux'
 
 import styles from './style.module.scss'
-import PHOTO from '../../../assets/image/me.jpg'
+import { RootReducerStateTypes } from '../../../type/reducers/rootReducer'
 
 const About = () => {
+  const photoLink = useSelector((state: RootReducerStateTypes) => state.photo.link)
+
   return (
     <div className={styles.about}>
-      <img src={PHOTO} className={styles.about__photo} />
+      <img src={photoLink} className={styles.about__photo} />
       <div className={styles.about__text}>
         <p className={styles.about__text__title}>關於我</p>
         <p className={styles.about__text__content}>

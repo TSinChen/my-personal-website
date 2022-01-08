@@ -1,6 +1,10 @@
-import React from 'react'
+import React, { Fragment, useEffect, useCallback } from 'react'
+import { useDispatch } from 'react-redux'
 
 import './reset.module.scss'
+import { PhotoType } from './constants/actions/photo'
+import { PhotoState } from './type/reducers/photo'
+import apis from './apis/apis'
 import { NAV_ITEMS } from './constants/navItems'
 import Header from './components/Header/Header'
 import MainPage from './components/MainPage/MainPage'
@@ -20,9 +24,34 @@ const BLOCKS: { title: string; component: () => React.ReactElement }[] = [
   { title: NAV_ITEMS.contact, component: Contact },
 ]
 
+const DEFAULT_PHOTO_LINK = 'https://i.imgur.com/DrW99tw.jpg'
+
 const App = () => {
+  const dispatch = useDispatch()
+
+  const getPhotoLink = useCallback(async () => {
+    try {
+      const result = await apis.personalInfo.getPhotoLink()
+      const photoLink: PhotoState['link'] = result.data?.link
+      dispatch({
+        type: PhotoType.SET_PHOTO_LINK,
+        payload: photoLink || DEFAULT_PHOTO_LINK,
+      })
+    } catch (error) {
+      console.error(error)
+      dispatch({
+        type: PhotoType.SET_PHOTO_LINK,
+        payload: DEFAULT_PHOTO_LINK,
+      })
+    }
+  }, [dispatch])
+
+  useEffect(() => {
+    getPhotoLink()
+  }, [getPhotoLink])
+
   return (
-    <div>
+    <Fragment>
       <Header />
       <MainPage />
       {BLOCKS.map((block, index) => (
@@ -31,7 +60,7 @@ const App = () => {
         </Block>
       ))}
       <Footer />
-    </div>
+    </Fragment>
   )
 }
 

@@ -1,11 +1,14 @@
 import { FormEvent, useState } from 'react'
+import { useSelector } from 'react-redux'
 
 import styles from './style.module.scss'
+import { RootReducerStateTypes } from '../../../type/reducers/rootReducer'
 import apis from '../../../apis/apis'
 import ICON_GITHUB from '../../../assets/image/icons/github.png'
 import Button from '../../Utils/Button/Button'
 
 const Contact = () => {
+  const photoLink = useSelector((state: RootReducerStateTypes) => state.photo.link)
   const [formName, setFormName] = useState('')
   const [formEmail, setFormEmail] = useState('')
   const [formMessage, setFormMessage] = useState('')
@@ -66,7 +69,7 @@ const Contact = () => {
         <Button type="submit">送出</Button>
       </form>
       <div className={styles.contact__info}>
-        <img className={styles.contact__info__picture} src="https://i.imgur.com/DrW99tw.jpg" />
+        <img className={styles.contact__info__picture} src={photoLink} />
         <a className={styles.contact__info__email} href="mailto:sinin60076@gmail.com">
           sinin60076@gmail.com
         </a>
