@@ -7,13 +7,13 @@ import apis from '../../../apis/apis'
 import { ExperienceList } from '../../../type/personalInfo'
 
 const Experience = () => {
-  const [experience, setExperience] = useState<ExperienceList>([])
+  const [experienceList, setExperienceList] = useState<ExperienceList>([])
 
   const getExperience = async () => {
     try {
-      const data = await apis.personalInfo.getExperience()
+      const data = await apis.personalInfo.getExperienceList()
       const experienceList: ExperienceList = data.data
-      setExperience(experienceList)
+      setExperienceList(experienceList)
     } catch (error) {
       console.error(error)
     }
@@ -25,7 +25,7 @@ const Experience = () => {
 
   return (
     <ul className={styles.experience}>
-      {experience.map((career) => (
+      {experienceList.map((career) => (
         <li className={styles.experience__item} key={career.job + career.company}>
           <img className={styles.experience__item__logo} src={LOGO_3DRENS} />
           <div className={styles.experience__item__text}>
