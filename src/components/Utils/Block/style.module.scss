@@ -1,3 +1,4 @@
+@import '../../../style/mixins';
 @import '../../../style/variables';
 
 .block {
@@ -5,6 +6,10 @@
   padding: $block-vertical-padding-top calc((100vw - #{$block-max-width}) / 2) $block-vertical-padding-bottom;
   flex-direction: column;
   align-items: center;
+
+  @include respond(m) {
+    padding: $block-vertical-padding-top 5% $block-vertical-padding-bottom;
+  }
 
   &--dark {
     background-color: $color-black-primary;
