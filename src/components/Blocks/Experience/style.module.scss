@@ -1,3 +1,4 @@
+@import '../../../style/mixins';
 @import '../../../style/variables';
 
 .experience {
@@ -10,6 +11,10 @@
       width: 14rem;
       height: 14rem;
       border-radius: 50%;
+
+      @include respond(s) {
+        display: none;
+      }
     }
 
     &__text {

@@ -1,11 +1,21 @@
+@import '../../../style/mixins';
+
 .about {
   display: flex;
   align-items: center;
+
+  @include respond(s) {
+    flex-direction: column;
+  }
 
   &__photo {
     margin-right: 5rem;
     width: 25rem;
     border-radius: 50%;
+
+    @include respond(s) {
+      margin-bottom: 2rem;
+    }
   }
 
   &__text {

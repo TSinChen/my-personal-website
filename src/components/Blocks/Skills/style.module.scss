@@ -1,3 +1,4 @@
+@import '../../../style/mixins';
 @import '../../../style/variables';
 
 .skills {
@@ -11,6 +12,10 @@
     width: 33.33%;
     justify-content: center;
     border-radius: 50%;
+
+    @include respond(s) {
+      width: 50%;
+    }
 
     &:nth-child(-n + 3) {
       margin-bottom: $block-vertical-padding-top;

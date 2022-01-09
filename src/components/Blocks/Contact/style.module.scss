@@ -1,11 +1,29 @@
+@import '../../../style/mixins';
+@import '../../../style/variables';
+
 .contact {
   display: flex;
   width: 100%;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
+
+  @include respond(s) {
+    justify-content: center;
+  }
 
   & > * {
     width: 45%;
+
+    @include respond(s) {
+      width: 90%;
+    }
+  }
+
+  > :first-child {
+    @include respond(s) {
+      margin-bottom: $block-vertical-padding-top;
+    }
   }
 
   &__form {
