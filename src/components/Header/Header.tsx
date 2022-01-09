@@ -18,8 +18,10 @@ const Header = () => {
   }
 
   return (
-    <header className={cx(styles.header, open ? styles['header--open'] : {})} id="header">
-      <div className={styles.header__toggle} onClick={() => setOpen(!open)} />
+    <header className={cx(styles.header, open ? styles.open : {})} id="header">
+      <div className={cx(styles.header__toggle, open ? styles.open : {})} onClick={() => setOpen(!open)}>
+        <div className={styles.header__toggle__icon} />
+      </div>
       <ul className={styles.header__navbar}>
         {Object.values(NAV_ITEMS).map((item) => (
           <li key={item} className={styles.header__navbar__item} onClick={() => handleJumpToAnchor(item)}>

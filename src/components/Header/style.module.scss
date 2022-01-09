@@ -4,18 +4,85 @@
 .header {
   position: fixed;
   top: 0;
-  left: 0;
   width: 100%;
   background-color: $header-background-color;
   display: flex;
   justify-content: center;
   z-index: 99;
+  transition: all 0.5s;
+
+  @include respond(m) {
+    left: 100%;
+    width: 50vw;
+    height: 100vh;
+    align-items: center;
+    border-left: 2px solid $color-white-primary;
+
+    &.open {
+      transform: translateX(-100%);
+    }
+  }
+
+  &__toggle {
+    display: none;
+
+    @include respond(m) {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      background-color: $header-background-color;
+      display: block;
+      width: 6.5rem;
+      height: 8rem;
+      border: 2px solid $color-white-primary;
+      border-radius: 8px 0 0 8px;
+      transform: translate(-100%, -50%);
+    }
+
+    &__icon {
+      background-color: $color-white-primary;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      display: inline-block;
+      width: 65%;
+      height: 2px;
+      transform: translate(-50%, -50%);
+
+      &::before,
+      &::after {
+        content: '';
+        background-color: $color-white-primary;
+        position: absolute;
+        top: -1rem;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        transition: all 0.5s;
+      }
+
+      &::before {
+        top: -1.5rem;
+      }
+
+      &::after {
+        top: 1.5rem;
+      }
+    }
+  }
 
   &__navbar {
     width: 128rem;
     margin: 0 5rem;
     display: flex;
     justify-content: flex-end;
+
+    @include respond(m) {
+      margin: 0;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
 
     &__item {
       display: flex;
@@ -26,6 +93,12 @@
       cursor: pointer;
       transition: background-color 0.2s;
       text-transform: uppercase;
+
+      @include respond(m) {
+        width: 100%;
+        padding: 2rem 0;
+        justify-content: center;
+      }
 
       &:hover {
         background-color: rgba($color-white-primary, 0.3);
