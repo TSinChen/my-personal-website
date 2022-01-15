@@ -2,11 +2,11 @@
 
 .portfolios {
   display: flex;
+  margin: $portfolios-gap 0;
   justify-content: space-between;
   flex-wrap: wrap;
 
   &__source {
-    margin-bottom: 2rem;
     font-size: 2rem;
     font-weight: bold;
 
