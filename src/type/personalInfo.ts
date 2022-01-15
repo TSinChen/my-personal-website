@@ -20,6 +20,7 @@ export type Repository = {
   created_at: string
   // eslint-disable-next-line camelcase
   updated_at: string
+  topics: string[]
 }
 
 export type RepositoryList = Repository[]
