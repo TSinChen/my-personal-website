@@ -1,32 +1,44 @@
 @import '../../../style/variables';
 
 .button {
-  background-color: $color-white-primary;
-  display: block;
-  margin: 0 auto;
-  padding: 1rem 2.5rem;
-  color: $color-black-primary;
-  font-size: 1.6rem;
-  font-weight: bold;
-  border: 1px solid $color-black-primary;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: all 0.1s;
-
-  &:hover {
-    transform: translateY(-3px);
-  }
-
-  &:active {
-    transform: translateY(-1px);
-  }
-
-  &--disabled {
-    opacity: 0.5;
+  &--light,
+  &--dark {
+    display: block;
+    margin: 0 auto;
+    padding: 1rem 2.5rem;
+    font-size: 1.6rem;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.1s;
 
     &:hover {
-      cursor: default;
-      transform: none;
+      transform: translateY(-3px);
     }
+
+    &:active {
+      transform: translateY(-1px);
+    }
+
+    &--disabled {
+      opacity: 0.5;
+
+      &:hover {
+        cursor: default;
+        transform: none;
+      }
+    }
+  }
+
+  &--light {
+    background-color: $color-white-primary;
+    color: $color-black-primary;
+    border: 1px solid $color-black-primary;
+  }
+
+  &--dark {
+    background-color: $color-black-primary;
+    color: $color-white-primary;
+    border: 1px solid $color-white-primary;
   }
 }

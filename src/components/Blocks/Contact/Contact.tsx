@@ -82,7 +82,7 @@ const Contact = () => {
             onChange={(e) => setFormMessage(e.target.value)}
           />
         </div>
-        <Button type="submit" disabled={isSending}>
+        <Button type="submit" disabled={isSending} theme="light">
           {'送出'}
         </Button>
       </form>
