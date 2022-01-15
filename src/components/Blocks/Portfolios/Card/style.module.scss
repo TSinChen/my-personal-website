@@ -73,24 +73,27 @@
       font-size: 2rem;
       text-decoration: underline;
 
+      @include respond(m) {
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+      }
+
       > :not(:last-child) {
         margin-right: 1rem;
 
-        @include respond(s) {
+        @include respond(m) {
           margin-right: 0;
-          margin-bottom: 1rem;
         }
-      }
-
-      @include respond(s) {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
       }
     }
 
     &__date {
       font-size: 1.6rem;
+
+      @include respond(m) {
+        display: none;
+      }
     }
   }
 }
