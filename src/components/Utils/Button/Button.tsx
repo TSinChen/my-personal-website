@@ -9,14 +9,16 @@ type Props = {
   children: string
   disabled?: ButtonHTMLAttributes<HTMLButtonElement>['disabled']
   theme: Theme
+  onClick?: () => void
 }
 
-const Button = ({ type = 'button', children, disabled }: Props) => {
+const Button = ({ type = 'button', children, disabled, theme, onClick }: Props) => {
   return (
     <button
       className={cx(styles[`button--${theme}`], disabled ? styles['button--disabled'] : {})}
       type={type}
       disabled={disabled}
+      onClick={onClick}
     >
       {children}
     </button>
