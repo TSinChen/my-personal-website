@@ -5,9 +5,13 @@ import styles from './style.module.scss'
 import apis from '../../../apis/apis'
 import { RepositoryList } from '../../../type/personalInfo'
 import Card from './Card/Card'
+import Button from '../../Utils/Button/Button'
 
 const Portfolios = () => {
   const [repositoryList, setRepositoryList] = useState<RepositoryList>([])
+  const [pinnedRepositoryList, setPinnedRepositoryList] = useState<RepositoryList>([])
+  const [unpinnedRepositoryList, setUnpinnedRepositoryList] = useState<RepositoryList>([])
+  const [showMore, setShowMore] = useState(false)
 
   const getRepositoryList = async () => {
     try {
@@ -20,9 +24,30 @@ const Portfolios = () => {
     }
   }
 
+  const getPinnedRepositoryList = (repositoryList: RepositoryList) => {
+    const pinned = []
+    const unpinned = []
+    for (const repo of repositoryList) {
+      if (!repo.topics.length) {
+        unpinned.push(repo)
+      } else if (repo.topics.find((topic) => topic === 'portfolio')) {
+        pinned.push(repo)
+      }
+    }
+    setPinnedRepositoryList(
+      pinned.sort((a, b) => (dayjs(a.updated_at).isBefore(dayjs(b.updated_at)) ? -1 : 1)),
+    )
+    setUnpinnedRepositoryList(unpinned)
+  }
+
   useEffect(() => {
     getRepositoryList()
   }, [])
+
+  useEffect(() => {
+    if (!repositoryList.length) return
+    getPinnedRepositoryList(repositoryList)
+  }, [repositoryList])
 
   return (
     <Fragment>
@@ -33,10 +58,15 @@ const Portfolios = () => {
         </a>
       </div>
       <ul className={styles.portfolios}>
-        {repositoryList.map((repository) => (
+        {pinnedRepositoryList.map((repository) => (
           <Card key={repository.id} repository={repository} />
         ))}
+        {showMore &&
+          unpinnedRepositoryList.map((repository) => <Card key={repository.id} repository={repository} />)}
       </ul>
+      <Button theme="dark" onClick={() => setShowMore(!showMore)}>
+        {showMore ? '顯示較少' : '顯示更多'}
+      </Button>
     </Fragment>
   )
 }
