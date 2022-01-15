@@ -20,7 +20,7 @@ const Header = () => {
   return (
     <header className={cx(styles.header, open ? styles.open : {})} id="header">
       <div className={cx(styles.header__toggle, open ? styles.open : {})} onClick={() => setOpen(!open)}>
-        <div className={styles.header__toggle__icon} />
+        <div className={cx(styles.header__toggle__icon, open ? styles.open : {})} />
       </div>
       <ul className={styles.header__navbar}>
         {Object.values(NAV_ITEMS).map((item) => (

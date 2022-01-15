@@ -68,6 +68,20 @@
       &::after {
         top: 1.5rem;
       }
+
+      &.open {
+        height: 0;
+
+        &::before {
+          top: 0;
+          transform: rotate(-45deg);
+        }
+
+        &::after {
+          top: 0;
+          transform: rotate(45deg);
+        }
+      }
     }
   }
 
