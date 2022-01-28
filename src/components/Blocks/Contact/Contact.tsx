@@ -83,7 +83,7 @@ const Contact = () => {
           />
         </div>
         <Button type="submit" disabled={isSending} theme="light">
-          {'送出'}
+          {!isSending ? '送出' : '傳送中...'}
         </Button>
       </form>
       <div className={styles.contact__info}>
