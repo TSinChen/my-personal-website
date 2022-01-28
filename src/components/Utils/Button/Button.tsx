@@ -15,7 +15,7 @@ type Props = {
 const Button = ({ type = 'button', children, disabled, theme, onClick }: Props) => {
   return (
     <button
-      className={cx(styles[`button--${theme}`], disabled ? styles['button--disabled'] : {})}
+      className={cx(styles[`button--${theme}`], disabled ? styles[`button--${theme}--disabled`] : {})}
       type={type}
       disabled={disabled}
       onClick={onClick}

@@ -23,7 +23,8 @@
     &--disabled {
       opacity: 0.5;
 
-      &:hover {
+      &:hover,
+      &:active {
         cursor: default;
         transform: none;
       }
