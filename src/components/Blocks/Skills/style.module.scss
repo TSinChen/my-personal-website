@@ -3,22 +3,20 @@
 
 .skills {
   display: flex;
+  margin-bottom: -$block-vertical-padding-top;
   justify-content: center;
   flex-wrap: wrap;
 
   &__item {
     position: relative;
     display: flex;
+    margin-bottom: $block-vertical-padding-top;
     width: 33.33%;
     justify-content: center;
     border-radius: 50%;
 
     @include respond(s) {
       width: 50%;
-    }
-
-    &:nth-child(-n + 3) {
-      margin-bottom: $block-vertical-padding-top;
     }
 
     &__icon {
